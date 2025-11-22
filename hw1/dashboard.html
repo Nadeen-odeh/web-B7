@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BIO DESIGN AI – Dashboard</title>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-blue-50 to-blue-200">
+
+
+  <!-- TOP NAVIGATION BAR -->
+  <nav class="w-full bg-white shadow-lg px-10 py-4 flex items-center justify-between border-b">
+
+    <!-- LEFT: Logo + Title -->
+    <div class="flex items-center gap-3">
+      <img src="/logo.png" alt="BioTech Logo" class="w-10 h-10 rounded-lg shadow">
+      <h1 class="text-2xl font-bold text-blue-900">BIO DESIGN AI</h1>
+    </div>
+
+    <!-- RIGHT: Menu -->
+    <div class="flex items-center gap-8 text-lg font-medium">
+      
+      <!-- Logout -->
+      <a href="index.html" class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-700 transition">
+        Logout
+      </a>
+    </div>
+  </nav>
+
+
+  <!-- MAIN CONTENT -->
+  <main class="p-10">
+
+    <!-- HEADER -->
+    <header class="flex justify-between items-center mb-10">
+      <h2 class="text-3xl font-bold text-blue-900">
+        Welcome, Biotech Student 👋
+      </h2>
+     
+    </header>
+
+    <!-- GRID CARDS -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+
+      <!-- Card 1 -->
+      <div class="bg-white p-6 rounded-xl shadow border-l-4 border-purple-500">
+        <h3 class="font-semibold text-purple-700 text-lg">🤖 AI Problem-Solving Bot</h3>
+        <p class="text-gray-600 mt-2">Start a Design Thinking session with the AI chatbot.</p>
+        <a href="#" class="text-purple-700 font-semibold mt-3 inline-block">Open AI Bot →</a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white p-6 rounded-xl shadow border-l-4 border-green-500">
+        <h3 class="font-semibold text-green-700 text-lg">🧪 Your Biotech Projects</h3>
+        <p class="text-gray-600 mt-2">View, edit, or continue working on your projects.</p>
+        <a href="#" class="text-green-700 font-semibold mt-3 inline-block">View Projects →</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white p-6 rounded-xl shadow border-l-4 border-pink-500">
+        <h3 class="font-semibold text-pink-700 text-lg">🧠 Design Thinking Flow</h3>
+        <p class="text-gray-600 mt-2">Follow a structured innovation process.</p>
+        <a href="#" class="text-pink-700 font-semibold mt-3 inline-block">Start Flow →</a>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-white p-6 rounded-xl shadow border-l-4 border-orange-500">
+        <h3 class="font-semibold text-orange-700 text-lg">📚 Learning Resources</h3>
+        <p class="text-gray-600 mt-2">Tutorials, business guides, lab techniques.</p>
+        <a href="#" class="text-orange-700 font-semibold mt-3 inline-block">Explore →</a>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="bg-white p-6 rounded-xl shadow border-l-4 border-blue-500">
+        <h3 class="font-semibold text-blue-700 text-lg">👥 Collaboration Hub</h3>
+        <p class="text-gray-600 mt-2">Connect with teammates, share feedback.</p>
+        <a href="#" class="text-blue-700 font-semibold mt-3 inline-block">Collaborate →</a>
+      </div>
+      
+
+    </div>
+
+  </main>
+
+  <!-- JS -->
+  <script type="module" src="/src/main.js"></script>
+
+</body>
+</html>
