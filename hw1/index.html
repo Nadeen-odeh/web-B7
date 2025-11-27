@@ -1,77 +1,193 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BIO DESIGN AI – Login / Register</title>
-</head>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>BIO BOT – העוזר החכם לסטודנטים לביוטכנולוגיה</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
 
-<body class="min-h-screen bg-gradient-to-br from-blue-50 to-blue-200 flex justify-center items-center">
+  <body class="bg-gradient-to-b from-blue-50 to-white min-h-screen text-gray-800">
 
-  <!-- CARD -->
-  <div class="bg-white shadow-xl rounded-2xl w-full max-w-md p-8 transition-all duration-300" id="cardBox">
+    <!-- Navbar -->
+  <header class="border-b bg-white/70 backdrop-blur sticky top-0 z-20">
+  <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+    
+    <div class="flex items-center gap-2">
+     <img 
+  src="./assets/logo.png"
+  alt="BIO BOT Logo"
+  class="w-10 h-10 object-contain"
+/>
 
-    <!-- LOGO -->
-    <div class="flex justify-center mb-4">
-      <img src="/logo.png" alt="logo" class="w-20 h-20 rounded-xl shadow-md">
+      <div>
+        <div class="font-semibold text-lg">BIO BOT</div>
+        <div class="text-xs text-gray-500">Braude Biotechnology Assistant</div>
+      </div>
     </div>
 
-    <!-- TITLE -->
-    <h1 class="text-3xl font-bold text-center text-blue-900 mb-6 tracking-wide">
-      BIO DESIGN <span class="text-blue-600">AI</span>
+    <nav></nav>
+
+  </div>
+</header>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-5xl mx-auto px-4 py-8 space-y-16">
+<!-- HERO SECTION -->
+<section id="hero" class="flex flex-col md:flex-row items-center justify-between gap-10 mt-4">
+
+  <!-- RIGHT SIDE – TEXT -->
+  <div class="flex-1 space-y-4 text-right">
+    <h1 class="text-3xl md:text-4xl font-extrabold text-blue-700 leading-snug">
+      BIO BOT – העוזר החכם<br />
+      לסטודנטים לביוטכנולוגיה בבראודה
     </h1>
 
+    <p class="text-gray-700 text-sm md:text-base leading-relaxed">
+      בוט חכם שיודע את <span class="font-semibold">שנתון ביוטכנולוגיה</span>,
+      קבצי העזר לרישום, לוח מעבדות ופרטים חשובים על מסלול הלימודים — 
+      ומכוון את הסטודנטים בצורה פשוטה וברורה.
+    </p>
 
-    <!-- LOGIN FORM -->
-    <div id="loginForm">
-      <h2 class="text-xl font-semibold text-blue-900 mb-4 text-center">Login</h2>
+    <div class="flex flex-wrap gap-3 justify-end">
+      <a onclick="showSection('chat')"
+        class="px-5 py-2 rounded-full bg-blue-600 text-white text-sm font-semibold shadow hover:bg-blue-500 cursor-pointer">
+        נסו את דמו הצ'אט
+      </a>
 
-      <input id="loginEmail" type="email" placeholder="Email"
-        class="w-full p-3 border rounded-lg mb-3 focus:outline-none focus:ring-2 focus:ring-blue-400" />
-
-      <input id="loginPass" type="password" placeholder="Password"
-        class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400" />
-
-      <button id="loginBtn" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-800 transition">
-        Login
-      </button>
-
-      <p class="text-center mt-4 text-gray-600">
-        Don't have an account?
-        <button onclick="showRegister()" class="text-blue-700 font-semibold hover:underline ml-1">
-          Register
-        </button>
-      </p>
-    </div>
-
-
-    <!-- REGISTER FORM -->
-    <div id="registerForm" class="hidden">
-      <h2 class="text-xl font-semibold text-blue-900 mb-4 text-center">Create Account</h2>
-
-      <input id="regName" type="text" placeholder="Full Name"
-        class="w-full p-3 border rounded-lg mb-3 focus:outline-none focus:ring-2 focus:ring-blue-400" />
-
-      <input id="regEmail" type="email" placeholder="Email"
-        class="w-full p-3 border rounded-lg mb-3 focus:outline-none focus:ring-2 focus:ring-blue-400" />
-
-      <input id="regPass" type="password" placeholder="Password"
-        class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400" />
-
-      <button id="registerBtn" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-800 transition">
-        Register
-      </button>
-
-      <p class="text-center mt-4 text-gray-600">
-        Already have an account?
-        <button onclick="showLogin()" class="text-blue-700 font-semibold hover:underline ml-1">
-          Login
-        </button>
-      </p>
+      <a onclick="showSection('about')"
+        class="px-5 py-2 rounded-full border border-blue-500 text-blue-700 text-sm font-semibold hover:bg-blue-50 cursor-pointer">
+        על הבוט
+      </a>
     </div>
 
   </div>
 
-  <script type="module" src="/src/main.js"></script>
-</body>
+  <!-- – BOT ICON -->
+  <div class="flex-1 flex justify-center md:justify-start">
+   <img 
+  src="https://cdn-icons-png.flaticon.com/512/4712/4712101.png"
+  alt="Bio Bot Icon"
+  class="w-48 opacity-90"
+/>
+
+  </div>
+
+</section>
+
+      <!-- ABOUT SECTION -->
+      <section id="about" class="hidden space-y-6">
+
+        <h2 class="text-xl font-bold text-blue-700 mb-2">על הבוט</h2>
+
+        <p class="text-sm text-gray-700 leading-relaxed">
+          BIO BOT הוא עוזר חכם לסטודנטים לביוטכנולוגיה במכללת בראודה.
+          הוא מאחד במקום אחד את כל המידע החשוב:
+        </p>
+
+        <ul class="list-disc pr-6 text-sm text-gray-700 space-y-1">
+          <li>קבצי עזר לרישום לפי סמסטר</li>
+          <li>לוח מעבדות מלא</li>
+          <li>פריסת קורסי חובה</li>
+          <li>שנתון מלא לכל מסלול</li>
+          <li>קורסי התמחות</li>
+          <li>פרטי יועצים ואנשי קשר</li>
+        </ul>
+
+        <h3 class="text-lg font-bold text-blue-700">מה BIO BOT יודע לעשות?</h3>
+<div class="grid md:grid-cols-3 gap-4">
+
+  <div class="bg-white rounded-2xl shadow-sm border border-blue-100 p-4 text-sm space-y-2">
+    <h3 class="font-semibold">📚 עזרה ברישום לקורסים</h3>
+    <p class="text-gray-700">מזהה את הסמסטר שלך ומכוון לקובץ הרישום המתאים באופן אוטומטי.</p>
+  </div>
+
+  <div class="bg-white rounded-2xl shadow-sm border border-blue-100 p-4 text-sm space-y-2">
+    <h3 class="font-semibold">🧪 לוח מעבדות חכם</h3>
+    <p class="text-gray-700">מציג מידע על ימים, שעות, מרצים וחדרי מעבדה — בצורה פשוטה וברורה.</p>
+  </div>
+
+  <div class="bg-white rounded-2xl shadow-sm border border-blue-100 p-4 text-sm space-y-2">
+    <h3 class="font-semibold">🎓 שנתון והתמחויות</h3>
+    <p class="text-gray-700">מנתח את תוכנית הלימודים ונותן הסבר קצר על כל קורס ומגמה.</p>
+  </div>
+
+  <div class="bg-white rounded-2xl shadow-sm border border-blue-100 p-4 text-sm space-y-2">
+    <h3 class="font-semibold">👨‍🏫 הכוונה ליועץ אקדמי</h3>
+    <p class="text-gray-700">מזהה את השנה שלך, ומכוון ליועץ האקדמי המתאים כולל פרטי התקשרות.</p>
+  </div>
+
+</div>
+
+      </section>
+
+      <!-- CHAT DEMO -->
+      <section id="chat" class="hidden space-y-4">
+        <h2 class="text-xl font-bold text-blue-700 text-center">דמו צ'אט</h2>
+
+       
+
+        <div class="max-w-md mx-auto bg-white rounded-2xl shadow-lg border border-blue-100 flex flex-col h-[420px]">
+          
+          <!-- Header -->
+          <div class="px-4 py-3 border-b flex items-center gap-2">
+            <span class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-bold">
+              B
+            </span>
+            <div class="text-xs">
+              <div class="font-semibold">BIO BOT – Demo</div>
+              <div class="text-gray-400">מצב: דמו</div>
+            </div>
+          </div>
+
+          <!-- Chat window -->
+          <div id="chatWindow" class="flex-1 p-3 overflow-y-auto space-y-2 text-xs bg-blue-50/40">
+            <div class="bg-white rounded-xl p-2 max-w-[80%]">
+              שלום! שאלי אותי משהו על קורסים, רישום או מעבדות 😊
+            </div>
+          </div>
+
+          <!-- Input -->
+          <div class="p-3 border-t flex gap-2">
+            <input
+              id="userInput"
+              class="flex-1 text-xs border rounded-full px-3 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
+              placeholder="כתוב שאלה לדוגמה: מה קורסי החובה בסמסטר 2?"
+            />
+            <button
+              id="sendBtn"
+              class="text-xs px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-500">
+              שלח
+            </button>
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- JS -->
+    <script type="module" src="/src/main.js"></script>
+
+    <script>
+      window.showSection = (id) => {
+        const sections = ["about", "chat"];
+
+        sections.forEach(sec => {
+          const el = document.getElementById(sec);
+          if (!el) return;
+
+          if (sec === id) {
+            el.classList.remove("hidden");
+          } else {
+            el.classList.add("hidden");
+          }
+        });
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      };
+    </script>
+
+  </body>
 </html>

@@ -1,75 +1,69 @@
-import './style.css';
+const chatWindow = document.getElementById("chatWindow");
+const userInput = document.getElementById("userInput");
+const sendBtn = document.getElementById("sendBtn");
 
+function addMessage(text, sender = "bot") {
+  if (!chatWindow) return;
 
-// FAKE USER FOR LOGIN
+  const div = document.createElement("div");
+  div.className =
+    sender === "user"
+      ? "bg-emerald-200 rounded-xl p-2 max-w-[80%] ml-auto text-right"
+      : "bg-white rounded-xl p-2 max-w-[80%] text-right";
 
-const fakeUser = {
-  email: "student@gmail.com",
-  password: "1234"
-};
-
-
-// SWITCH FORMS
-
-const loginForm = document.getElementById("loginForm");
-const registerForm = document.getElementById("registerForm");
-const cardBox = document.getElementById("cardBox");
-
-window.showRegister = function () {
-  loginForm.classList.add("hidden");
-  registerForm.classList.remove("hidden");
-  cardBox.classList.add("scale-105");
-  setTimeout(() => cardBox.classList.remove("scale-105"), 200);
-};
-
-window.showLogin = function () {
-  registerForm.classList.add("hidden");
-  loginForm.classList.remove("hidden");
-  cardBox.classList.add("scale-105");
-  setTimeout(() => cardBox.classList.remove("scale-105"), 200);
-};
-
-
-// FROM LOGIN BUTTON  Redirect to Dashboard
-
-const loginBtn = document.querySelector("#loginBtn");
-
-if (loginBtn) {
-  loginBtn.addEventListener("click", () => {
-    const email = document.getElementById("loginEmail").value.trim();
-    const password = document.getElementById("loginPass").value.trim();
-
-    if (email === "" || password === "") {
-      alert("Please enter email and password.");
-      return;
-    }
-
-    // CHECK FAKE DATA
-    if (email === fakeUser.email && password === fakeUser.password) {
-      window.location.href = "dashboard.html";
-    } else {
-      alert("Incorrect email or password!");
-    }
-  });
+  div.textContent = text;
+  chatWindow.appendChild(div);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
 }
 
 
-// REGISTER BUTTON
+function getDemoAnswer(question) {
+  const q = question.toLowerCase();
 
-const registerBtn = document.querySelector("#registerBtn");
+  // קורסי חובה
+  if (q.includes("חובה") || q.includes("קורסים")) {
+    return "קורסי החובה משתנים לפי השנה והמסלול, אך כוללים קורסי בסיס בביולוגיה, כימיה ומעבדות מקצועיות.";
+  }
 
-if (registerBtn) {
-  registerBtn.addEventListener("click", () => {
-    const name = document.getElementById("regName").value.trim();
-    const email = document.getElementById("regEmail").value.trim();
-    const password = document.getElementById("regPass").value.trim();
+  // מעבדות
+  if (q.includes("מעב") || q.includes("מעבדות")) {
+    return "לוח המעבדות כולל ימים, שעות, מדריכים וחדרים. לרוב המעבדות הן מרוכזות בתחילת או אמצע השבוע.";
+  }
 
-    if (name === "" || email === "" || password === "") {
-      alert("Please fill all fields.");
-      return;
-    }
+  // רישום לקורסים
+  if (q.includes("רישום") || q.includes("נרשם") || q.includes("להירשם")) {
+    return "הרישום לקורסים מתבצע לפי הנחיות המחלקה ומבוסס על חלוקה לסמסטרים. חשוב לבדוק את קבצי הרישום העדכניים.";
+  }
 
-    alert("Account created! Now you can login.");
-    showLogin(); // move back to login form
+  // שנתון
+  if (q.includes("שנתון") || q.includes("תוכנית") || q.includes("תכנית")) {
+    return "השנתון מציג את כל הקורסים, נקודות הזכות, דרישות הקדם ומבנה התואר במסלול הביוטכנולוגיה.";
+  }
+
+  // יועץ אקדמי
+  if (q.includes("יועץ") || q.includes("אקדמי")) {
+    return "ליועצים אקדמיים יש תפקיד להכווין בבחירת קורסים, התמחויות ופתרון בעיות בתהליך הלימודים.";
+  }
+
+  // ברירת מחדל — קצר, נקי, לא מעצבן
+  return "נסה לשאול על קורסים, מעבדות, רישום, שנתון או יועץ אקדמי 🙂";
+}
+
+
+function handleSend() {
+  const text = userInput.value.trim();
+  if (!text) return;
+
+  addMessage(text, "user");
+  userInput.value = "";
+
+  const answer = getDemoAnswer(text);
+  setTimeout(() => addMessage(answer, "bot"), 300);
+}
+
+if (sendBtn && userInput) {
+  sendBtn.addEventListener("click", handleSend);
+  userInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") handleSend();
   });
 }
